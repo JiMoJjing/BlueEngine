@@ -24,7 +24,6 @@ VertexOutput main( VertexInput input )
     //output.position = float4(input.position, 1);
     
     output.position = mul(float4(input.position, 1), worldMatrix);
-    
     output.color = input.color;
     output.texCoord = input.texCoord;
     

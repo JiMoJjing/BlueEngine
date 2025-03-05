@@ -2,6 +2,8 @@
 
 #include "Window.h"
 #include "../Render/Renderer.h"
+#include "Resource/ShaderLoader.h"
+#include "Resource/TextureLoader.h"
 
 namespace Blue
 {
@@ -21,6 +23,12 @@ namespace Blue
 		window = std::make_shared<Window>(
 			width, height, title, hInstance, WindowProc
 		);
+
+		// 셰이더 로더 생성.
+		shaderLoader = std::make_unique<ShaderLoader>();
+
+		// 텍스쳐 로더 생성.
+		textureLoader = std::make_unique<TextureLoader>();
 
 		// 렌더러 생성.
 		renderer = std::make_shared<Renderer>(

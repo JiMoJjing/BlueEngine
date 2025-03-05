@@ -32,7 +32,7 @@ namespace Blue
 		}
 
 		// Á¤Á¡ ¼ÎÀÌ´õ °´Ã¼ »ý¼º.
-		result = device.CreateVertexShader(
+		result = device.CreateVertexShader(																					
 			vertexShaderBuffer->GetBufferPointer(),
 			vertexShaderBuffer->GetBufferSize(),
 			nullptr,

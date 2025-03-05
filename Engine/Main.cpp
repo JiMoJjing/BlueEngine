@@ -1,6 +1,10 @@
 
 #include "Core/Engine.h"
 #include <iostream>
+#include "Core/Common.h"
+#include <typeinfo>
+#include "Shader/Shader.h"
+#include "Shader/TextureMappingShader.h"
 
 using namespace Blue;
 
@@ -21,8 +25,21 @@ using namespace Blue;
 //}
 
 // 설정 -> 링커 -> 시스템 -> 창을 콘솔로.
+
+template<typename T, typename std::enable_if<std::is_base_of<Shader, T>::value>::type* = nullptr>
+void TestClass()
+{
+	std::boolalpha(std::cout);
+	std::cout << typeid(T).name() << "\n";
+	std::cout << std::is_base_of<Shader, T>::value << "\n";
+}
+
 int main()
 {
+	//TestClass<Engine>();
+	//TestClass<TextureMappingShader>();
+
+
 	// 콘솔과 엔진 창이 동시에 켜지고 콘솔은 디버깅용으로 사용 가능
 	Engine engine(1280, 800, TEXT("Engine Demo"), GetModuleHandle(nullptr));
 	engine.Run();

@@ -1,31 +1,33 @@
 #include "TextureMappingShader.h"
 #include "Render/Texture.h"
+#include "Resource/TextureLoader.h"
 
 namespace Blue
 {
 	TextureMappingShader::TextureMappingShader()
-		: Shader(L"Default")
+		: Shader(L"TextureMapping")
 	{
 	}
 	TextureMappingShader::TextureMappingShader(const std::string& textureName)
-		: Shader(L"Default")
+		: Shader(L"TextureMapping")
 	{
-		texture = std::make_unique<Texture>(textureName);
+		//texture = std::make_unique<Texture>(textureName);
+		TextureLoader::Get().Load(textureName, texture);
 	}
 
 	TextureMappingShader::TextureMappingShader(const std::wstring& name, const std::string& textureName)
 		: Shader(name)
 	{
-		texture = std::make_unique<Texture>(textureName);
+		TextureLoader::Get().Load(textureName, texture);
 	}
 
 	void TextureMappingShader::Bind()
 	{
 		Shader::Bind();
 
-		if (texture)
+		if (texture.lock())
 		{
-			texture->Bind();
+			texture.lock()->Bind();
 		}
 	}
 }
