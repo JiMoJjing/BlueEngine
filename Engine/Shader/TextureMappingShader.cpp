@@ -15,12 +15,6 @@ namespace Blue
 		TextureLoader::Get().Load(textureName, texture);
 	}
 
-	TextureMappingShader::TextureMappingShader(const std::wstring& name, const std::string& textureName)
-		: Shader(name)
-	{
-		TextureLoader::Get().Load(textureName, texture);
-	}
-
 	void TextureMappingShader::Bind()
 	{
 		Shader::Bind();

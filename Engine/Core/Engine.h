@@ -46,6 +46,9 @@ namespace Blue
 		// ÅØ½ºÃÄ ·Î´õ °´Ã¼.
 		std::unique_ptr<class TextureLoader> textureLoader;
 
+		// ¸ðµ¨ ·Î´õ °´Ã¼.
+		std::unique_ptr<class ModelLoader> modelLoader;
+
 
 		// ½Ì±ÛÅæ °´Ã¼.
 		static Engine* instance;

@@ -10,7 +10,6 @@ namespace Blue
 	public:
 		TextureMappingShader();
 		TextureMappingShader(const std::string& textureName = "");
-		TextureMappingShader(const std::wstring& name = L"Default", const std::string& textureName = "");
 
 		virtual void Bind() override;
 	private:

@@ -46,7 +46,7 @@ namespace Blue
 		unsigned int positionX = (GetSystemMetrics(SM_CXSCREEN) - width) / 2;
 		unsigned int positionY = (GetSystemMetrics(SM_CYSCREEN) - height) / 2;
 
-		// 창 크기 조정.
+		// 창 크기 조정 rect 만큼 보장해줘 -> 그만큼 내부크기를 해줌.
 		RECT rect = { 0, 0, (long)width, (long)height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
 

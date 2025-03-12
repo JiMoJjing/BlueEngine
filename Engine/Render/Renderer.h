@@ -48,16 +48,8 @@ namespace Blue
 		// ½¦ÀÌ´õ °´Ã¼.
 		//std::unique_ptr<class Shader> shader;
 
-		//»ï°¢Çü ¸Þ½Ã °´Ã¼.
-		//std::unique_ptr<class TriangleMesh> mesh;
+		// ¸Þ½Ã °´Ã¼.
 		std::unique_ptr<class QuadMesh> mesh;
-
-	
-		//// ÀÔ·Â ·¹ÀÌ¾Æ¿ô.
-		//ID3D11InputLayout* inputLayout = nullptr;
-
-		//// ½¦ÀÌ´õ °´Ã¼.
-		//ID3D11VertexShader* vertexShader = nullptr;
-		//ID3D11PixelShader* pixelShader = nullptr;
+		std::unique_ptr<class QuadMesh> mesh2;
 	};
 }

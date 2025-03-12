@@ -4,6 +4,7 @@
 #include "../Render/Renderer.h"
 #include "Resource/ShaderLoader.h"
 #include "Resource/TextureLoader.h"
+#include "Resource/ModelLoader.h"
 
 namespace Blue
 {
@@ -31,9 +32,10 @@ namespace Blue
 		textureLoader = std::make_unique<TextureLoader>();
 
 		// 렌더러 생성.
-		renderer = std::make_shared<Renderer>(
-			width, height, window->Handle()
-		);
+		renderer = std::make_shared<Renderer>(width, height, window->Handle());
+
+		// 모델로더 생성.
+		modelLoader = std::make_unique<ModelLoader>();
 	}
 
 	Engine::~Engine()

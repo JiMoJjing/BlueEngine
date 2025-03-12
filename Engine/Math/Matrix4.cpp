@@ -206,6 +206,11 @@ namespace Blue
 		result.y = vector.x * matrix.m01 + vector.y * matrix.m11 + vector.z * matrix.m21;
 		result.z = vector.x * matrix.m02 + vector.y * matrix.m12 + vector.z * matrix.m22;
 
+		// 위치 변환 추가된것 ( 벡터가 항상 위치 (점) 이라 판단됨 ).
+		// result.x = vector.x * matrix.m00 + vector.y * matrix.m10 + vector.z * matrix.m20 + 1.0f * matrix.m30;
+		// result.y = vector.x * matrix.m01 + vector.y * matrix.m11 + vector.z * matrix.m21 + 1.0f * matrix.m31;
+		// result.z = vector.x * matrix.m02 + vector.y * matrix.m12 + vector.z * matrix.m22 + 1.0f * matrix.m32;
+
 		return result;
 	}
 }

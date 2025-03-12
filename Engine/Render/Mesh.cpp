@@ -83,6 +83,7 @@ namespace Blue
 		// 파라미터 복사.
 		this->vertices.assign(vertices.begin(), vertices.end());
 
+		// 정점 버퍼가 있으면, 해제 후 재생성.
 		if (vertexBuffer)
 		{
 			vertexBuffer->Release();
@@ -96,7 +97,7 @@ namespace Blue
 
 		// 정점 데이터.
 		D3D11_SUBRESOURCE_DATA vertexData = { };
-		vertexData.pSysMem = this->vertices.data();								// 정점 데이터.
+		vertexData.pSysMem = vertices.data();								// 정점 데이터.
 
 		// (정점) 버퍼 생성.
 		ID3D11Device& device = Engine::Get().Device();
@@ -121,15 +122,29 @@ namespace Blue
 		// 컨텍스트 얻어오기.
 		static ID3D11DeviceContext& context = Engine::Get().Context();
 
+		// 트랜스폼 바인딩.
+		transform.Bind();
+
 		// 루프 순회하면서 바인딩 & 드로우.
 		for (uint32 ix = 0; ix < (uint32)meshes.size(); ++ix)
 		{
 			// context에 정점 버퍼, 인덱스 버퍼, 인풋 레이아웃, 정점 셰이더, 픽셀 셰이더 설정하는데.
 			// 그 순서는 상관이 없고 만약 같은 정점 셰이더, 픽셀 셰이더를 쓴다면 정점, 인덱스 버퍼만 바꿔주면 된다.
 
-			meshes[ix]->Bind();
-			shaders[ix].lock()->Bind();
-			context.DrawIndexed(meshes[ix]->IndexCount(), 0, 0);
+			// 원래 리소스 가져오기.
+			auto mesh = meshes[ix].lock();
+			auto shader = shaders[ix].lock();
+
+			// 리소스 문제가 없으면 그리기.
+			if (mesh && shader)
+			{
+				mesh->Bind();
+				shader->Bind();
+				context.DrawIndexed(mesh->IndexCount(), 0, 0);
+			}
+			//meshes[ix].lock()->Bind();
+			//shaders[ix].lock()->Bind();
+			//context.DrawIndexed(meshes[ix].lock()->IndexCount(), 0, 0);
 		}
 	}
 }
