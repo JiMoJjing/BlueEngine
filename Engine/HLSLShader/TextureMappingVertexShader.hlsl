@@ -5,11 +5,18 @@ struct VertexInput
     float2 texCoord : TEXCOORD;
 };
 
-// ConstantBuffer
+// ConstantBuffer.
 cbuffer Transform : register(b0)
 {
     matrix worldMatrix;
-}
+};
+
+// Camera Buffer.
+cbuffer Camera : register(b1)
+{
+    matrix view;
+};
+
 
 struct VertexOutput
 {
@@ -21,9 +28,10 @@ struct VertexOutput
 VertexOutput main( VertexInput input )
 {
     VertexOutput output;
-    //output.position = float4(input.position, 1);
-    
+
     output.position = mul(float4(input.position, 1), worldMatrix);
+    output.position = mul(output.position, view);
+    
     output.color = input.color;
     output.texCoord = input.texCoord;
     

@@ -84,13 +84,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\QuadActor.cpp" />
+    <ClCompile Include="Component\CameraComponent.cpp" />
+    <ClCompile Include="Component\StaticMeshComponent.cpp" />
     <ClCompile Include="Core\Engine.cpp" />
     <ClCompile Include="Core\Window.cpp" />
+    <ClCompile Include="Level\DemoLevel.cpp" />
+    <ClCompile Include="Level\Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Math\Matrix4.cpp" />
     <ClCompile Include="Math\Transform.cpp" />
     <ClCompile Include="Math\Vector2.cpp" />
     <ClCompile Include="Math\Vector3.cpp" />
+    <ClCompile Include="Actor\Actor.cpp" />
+    <ClCompile Include="Component\Component.cpp" />
     <ClCompile Include="Render\Mesh.cpp" />
     <ClCompile Include="Render\QuadMesh.cpp" />
     <ClCompile Include="Render\Renderer.cpp" />
@@ -104,15 +111,22 @@
     <ClCompile Include="Shader\TextureMappingShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor\QuadActor.h" />
+    <ClInclude Include="Component\CameraComponent.h" />
+    <ClInclude Include="Component\StaticMeshComponent.h" />
     <ClInclude Include="Core\Common.h" />
     <ClInclude Include="Core\Engine.h" />
     <ClInclude Include="Core\Type.h" />
     <ClInclude Include="Core\Window.h" />
+    <ClInclude Include="Level\DemoLevel.h" />
+    <ClInclude Include="Level\Level.h" />
     <ClInclude Include="Library\stbi_image.h" />
     <ClInclude Include="Math\Matrix4.h" />
     <ClInclude Include="Math\Transform.h" />
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Actor\Actor.h" />
+    <ClInclude Include="Component\Component.h" />
     <ClInclude Include="Render\Mesh.h" />
     <ClInclude Include="Render\QuadMesh.h" />
     <ClInclude Include="Render\Renderer.h" />

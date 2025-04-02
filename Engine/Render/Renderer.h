@@ -21,7 +21,7 @@ namespace Blue
 		~Renderer();
 
 		// 그리기 함수.
-		void Draw();
+		void Draw(std::shared_ptr<class Level> level);
 
 	private:
 		// 리소스.
@@ -37,19 +37,5 @@ namespace Blue
 
 		// 뷰포트.
 		D3D11_VIEWPORT viewport;
-
-		// @Temp: 임시.
-		// 정점 버퍼 (정점 정보를 전달하는 데 사용함).
-		ID3D11Buffer* vertexBuffer = nullptr;
-
-		// 인덱스 버퍼 (정점을 조립할 때 정점의 순서를 전달.
-		ID3D11Buffer* indexBuffer = nullptr;
-
-		// 쉐이더 객체.
-		//std::unique_ptr<class Shader> shader;
-
-		// 메시 객체.
-		std::unique_ptr<class QuadMesh> mesh;
-		std::unique_ptr<class QuadMesh> mesh2;
 	};
 }
